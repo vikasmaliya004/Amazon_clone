@@ -1,15 +1,22 @@
 import React from 'react';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import SearchIcon from '@mui/icons-material/Search';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import "./Header.css";
+import { NavLink } from 'react-router-dom';
 const Header = () => {
     return (
-        <div>
+        <div className='header'>
+            <NavLink to="/" className="navlink" >
             <div className="header__logo">
-
+           <StorefrontIcon className='header__logoImage' fontSize='large'/>
+           <h2 className='header__logoTitle'>myShop</h2>
             </div>
+            </NavLink>
+            
             <div className="header__search">
-                <input type="text"></input>
-            <SearchIcon/>
+                <input type="text" className='header__searchInput'></input>
+            <SearchIcon className='header__searchIcon'/>
             </div>
             <div className="header__nav">
                 <div className="nav__item">
@@ -22,11 +29,13 @@ const Header = () => {
                   <span className="nav__itemLineOne">Your</span>
                   <span className="nav__itemLineTwo">Shop</span>
                 </div>
-                <div className="nav__item">
-                    
-                <ShoppingBasketIcon/>
-                  <span className="nav__itemLineTwo">0</span>
+                <NavLink to="/CheakOut" className = "navlink">
+                <div className="nav__itemBasket"> 
+                <ShoppingBasketIcon fontSize='large'/>
+                <span className="nav__itemLineTwo nav__basketCount">0</span>
                     </div>
+                </NavLink>
+                
             </div>
         </div>
     );
